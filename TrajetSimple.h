@@ -45,7 +45,7 @@ public:
     // Contrat :
     //
 
-    TrajetSimple ( );
+    TrajetSimple ( const char * depart,const char * arrivee,const char * transport );
     // Mode d'emploi :
     //
     // Contrat :

@@ -29,7 +29,7 @@ using namespace std;
 //} //----- Fin de Méthode
 void TrajetSimple::Afficher() const
 {
-  cout << "de" << this->villeDepart << "à" << this->villeArrivee << "en" << this->moyenTransport ;
+  cout << " de " << this->villeDepart << " à " << this->villeArrivee << " en " << this->moyenTransport ;
 }
 // Méthode réalisant l'affichage
 //-------------------------------------------- Constructeurs - destructeur
@@ -43,7 +43,7 @@ TrajetSimple::TrajetSimple ( const TrajetSimple & unTrajetSimple, const Collecti
 } //----- Fin de TrajetSimple (constructeur de copie)
 
 
-TrajetSimple::TrajetSimple ( ) : Trajet(), Collection(1,1,this)
+TrajetSimple::TrajetSimple ( const char * depart,const char * arrivee,const char * transport ) : Trajet(depart,arrivee,transport), Collection(1,1,this)
 // Algorithme :
 //
 {

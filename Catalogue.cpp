@@ -1,12 +1,12 @@
 /*************************************************************************
-                           Trajet  -  description
+                           Catalogue  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $ANNEE$ par $AUTEUR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Trajet> (fichier Trajet.cpp) ------------
+//---------- Réalisation de la classe <Catalogue> (fichier Catalogue.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -15,65 +15,61 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Trajet.h"
+#include "Collection.h"
+#include "Catalogue.h"
+
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Trajet::Méthode ( liste des paramètres )
+// type Catalogue::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
 //} //----- Fin de Méthode
 
-//-------------------------------------------- Constructeurs - destructeur
-Trajet::Trajet ( const Trajet & unTrajet )
-// Algorithme :
-//
+void Catalogue::Ajouter(const Collection & uneCollection)
 {
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Trajet>" << endl;
-#endif
-    strcpy(villeDepart,unTrajet.villeDepart);
-    strcpy(villeArrivee,unTrajet.villeArrivee);
-    strcpy(moyenTransport,unTrajet.moyenTransport);
-} //----- Fin de Trajet (constructeur de copie)
-
-
-Trajet::Trajet ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <Trajet>" << endl;
-#endif
-    strcpy(villeDepart,"Aucune");
-    strcpy(villeArrivee,"Aucune");
-    strcpy(moyenTransport,"Aucun");
-} //----- Fin de Trajet
-
-Trajet::Trajet(const char * depart,const char * arrivee,const char * transport)
-{
-  #ifdef MAP
-      cout << "Appel au constructeur de <Trajet>" << endl;
-  #endif
-  strcpy(villeDepart,depart);
-  strcpy(villeArrivee,arrivee);
-  strcpy(moyenTransport,transport);
+  if(tailleAct<tailleMax)
+  {
+    tab[tailleAct-1]=Collection(uneCollection);
+  }
 }
-// Ce constructeur permet de donner des valeurs aux attributs d'instances
-// dès la création de la classe (dès l'instanciation)
 
-Trajet::~Trajet ( )
+//-------------------------------------------- Constructeurs - destructeur
+Catalogue::Catalogue ( const Catalogue & unCatalogue )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Trajet>" << endl;
+    cout << "Appel au constructeur de copie de <Catalogue>" << endl;
 #endif
-} //----- Fin de ~Trajet
+} //----- Fin de Catalogue (constructeur de copie)
+
+
+Catalogue::Catalogue ( int taille )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Catalogue>" << endl;
+#endif
+  tailleMax=taille;
+  tailleAct=1;
+} //----- Fin de Catalogue
+
+
+Catalogue::~Catalogue ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <Catalogue>" << endl;
+#endif
+delete [] tab;
+} //----- Fin de ~Catalogue
 
 
 //------------------------------------------------------------------ PRIVE

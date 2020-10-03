@@ -27,8 +27,14 @@
 class Trajet
 {
 //----------------------------------------------------------------- PUBLIC
-
 public:
+// La liste chainée qui va stocker les pointeurs
+struct ListTrajet
+{
+  ListTrajet * next;
+  Trajet * pointeur;
+};
+
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
@@ -68,9 +74,9 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-char * villeDepart;
-char * villeArrivee;
-char * moyenTransport;
+char  villeDepart[255];
+char  villeArrivee[255];
+char  moyenTransport[255];
 };
 
 //-------------------------------- Autres définitions dépendantes de <Trajet>

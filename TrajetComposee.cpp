@@ -16,23 +16,19 @@ using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "TrajetComposee.h"
-
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void TrajetComposee::Ajouter(Trajet &unTrajet)
+void TrajetComposee::Ajouter(Trajet * unTrajet)
 {
-  ListTrajet * tempo = new ListTrajet;
-  ListTrajet * tmp = head;
-  while(tmp!=nullptr)
-  {
-    tmp=tmp->next;
-  }
-  tempo->pointeur=&unTrajet;
-  tempo->next=nullptr;
-  tmp->next=tempo;
+  ListTrajet * tmp = new ListTrajet ;
+  tmp->pointeur=unTrajet;
+  tmp->next=head;
+  head=tmp;
+  tailleAct++;
+  tailleMax++;
 }
 
 // type TrajetComposee::Méthode ( liste des paramètres )
@@ -64,7 +60,7 @@ TrajetComposee::TrajetComposee ( const Collection & uneCollection ) : Collection
 } //----- Fin de TrajetComposee (constructeur de copie)
 
 
-TrajetComposee::TrajetComposee (unsigned int max,unsigned int act,Trajet * pointeur )
+TrajetComposee::TrajetComposee (unsigned int max,unsigned int act,Trajet * pointeur ):Collection(max,act,pointeur)
 // Algorithme :
 //
 {
@@ -72,9 +68,7 @@ TrajetComposee::TrajetComposee (unsigned int max,unsigned int act,Trajet * point
     cout << "Appel au constructeur de <TrajetComposee>" << endl;
 #endif
 // Collection
-pointeurSurTrajet=this;
-tailleAct=act;
-tailleMax=max;
+this->Ajouter(pointeur);
 } //----- Fin de TrajetComposee
 
 

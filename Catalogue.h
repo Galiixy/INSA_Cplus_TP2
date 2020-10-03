@@ -1,69 +1,70 @@
 /*************************************************************************
-                           TrajetComposee  -  description
+                           Catalogue  -  description
                              -------------------
     début                : $DATE$
     copyright            : (C) $ANNEE$ par $AUTEUR$
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Interface de la classe <TrajetComposee> (fichier TrajetComposee.h) ----------------
-#if ! defined ( TRAJETCOMPOSEE_H )
-#define TRAJETCOMPOSEE_H
+//---------- Interface de la classe <Catalogue> (fichier Catalogue.h) ----------------
+#if ! defined ( CATALOGUE_H )
+#define CATALOGUE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Trajet.h"
 #include "Collection.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <TrajetComposee>
+// Rôle de la classe <Catalogue>
 //
 //
 //------------------------------------------------------------------------
 
-class TrajetComposee : public Trajet, public Collection
+class Catalogue
 {
 //----------------------------------------------------------------- PUBLIC
 
-
 public:
-  ListTrajet * head=nullptr;
-  void Ajouter( Trajet * unTrajet);
-  void Afficher() const;
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
     //
     // Contrat :
     //
+    void Ajouter(const Collection & uneCollection);
 
 //-------------------------------------------- Constructeurs - destructeur
-    TrajetComposee ( const Collection & uneCollection );
+    Catalogue ( const Catalogue & unCatalogue );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    TrajetComposee ( unsigned int max,unsigned int act,Trajet * pointeur);
+    Catalogue ( int taille );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~TrajetComposee ( );
+    virtual ~Catalogue ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
+
+//------------------------------------------------------------------ PRIVE
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+Collection  * tab;
+unsigned int tailleAct;
+unsigned int tailleMax;
 //----------------------------------------------------- Attributs protégés
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <TrajetComposee>
+//-------------------------------- Autres définitions dépendantes de <Catalogue>
 
-#endif // TRAJETCOMPOSEE_H
+#endif // CATALOGUE_H
