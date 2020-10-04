@@ -32,7 +32,9 @@ static void test ( void )
 //
 {
   // Le fameux Catalogue
-  // Catalogue * catalogue = new Catalogue(3);
+  Catalogue * catalogue = new Catalogue(3);
+
+  catalogue->Afficher();
 
   // Ajout de Trajets Simples
   TrajetSimple * TS1 = new TrajetSimple("Lyon","Bordeaux","Train") ;
@@ -40,28 +42,36 @@ static void test ( void )
   TrajetSimple * TS2_1 = new TrajetSimple("Lyon","Marseille","Bateau");
   TrajetSimple * TS2_2 = new TrajetSimple("Marseille","Paris","Avion");
 
-  // Affichage test
+  // Affichage test de Trajet Simple
   TS1->Afficher(); cout << "\r\n" ;
   TS3->Afficher(); cout << "\r\n" ;
 
   // Ajout des collections associées
-  Collection * CS1 = new Collection(1,1,TS1);
-  Collection * CS3 = new Collection(1,1,TS3);
+  //Collection * CS1 = new Collection(1,1,TS1);
+  //Collection * CS3 = new Collection(1,1,TS3);
 
   // Création du trajet composée
   // On ajoute les trajets simples à l'envers (désolé c'était un oubli)
-  TrajetComposee * TS2 = new TrajetComposee(2,2,TS2_2);
-  TS2->Ajouter(TS2_1);
-  TS2->Afficher();cout << "" << "\r\n";
+  TrajetComposee * TS2 = new TrajetComposee(1,1,TS2_2);TS2->Ajouter(TS2_1);
+
+  TS2->Afficher();cout << " " << "\r\n";
+
+  // Remplissage du catalogue
+  catalogue->Ajouter(TS1);
+  catalogue->Ajouter(TS2);
+  catalogue->Ajouter(TS3);
+
+  catalogue->Afficher();
 
   // Libération de la mémoire
-  delete CS3;
+  //delete CS3;
+  //delete CS1;
   delete TS3;
   delete TS2_2;
   delete TS2_1;
   delete TS2;
-  delete CS1;
   delete TS1;
+  delete catalogue;
 } //----- fin de nom
 
 //////////////////////////////////////////////////////////////////  PUBLIC

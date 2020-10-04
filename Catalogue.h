@@ -11,7 +11,8 @@
 #define CATALOGUE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "Collection.h"
+#include "TrajetComposee.h"
+#include "Trajet.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -28,12 +29,13 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    void Afficher() const;
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
     //
     // Contrat :
     //
-    void Ajouter(const Collection & uneCollection);
+    void Ajouter( Trajet * unTrajet);
 
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue ( const Catalogue & unCatalogue );
@@ -58,7 +60,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-Collection  * tab;
+TrajetComposee * tab = nullptr;
 unsigned int tailleAct;
 unsigned int tailleMax;
 //----------------------------------------------------- Attributs protégés

@@ -15,9 +15,7 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Collection.h"
 #include "Catalogue.h"
-
 
 //------------------------------------------------------------- Constantes
 
@@ -29,13 +27,26 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+void Catalogue::Afficher() const
+{
+  if(tailleAct<=0)
+  {
+    cout << "Le catalogue est vide pour le moment !" << endl;
+    return;
+  }
+  for(unsigned int i=0;i<tailleAct;i++)
+  {
+    tab[i].pointeurSurTrajet->Afficher(); cout << ""<< endl;
+  }
+}
 
-void Catalogue::Ajouter(const Collection & uneCollection)
+void Catalogue::Ajouter( Trajet * unTrajet )
 {
   if(tailleAct<tailleMax)
   {
-    tab[tailleAct-1]=Collection(uneCollection);
+    tab[tailleAct]=TrajetComposee(1,1,unTrajet);
   }
+  tailleAct++;
 }
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -57,7 +68,8 @@ Catalogue::Catalogue ( int taille )
     cout << "Appel au constructeur de <Catalogue>" << endl;
 #endif
   tailleMax=taille;
-  tailleAct=1;
+  tailleAct=0;
+  tab=(TrajetComposee*)malloc(sizeof(TrajetComposee)*taille);
 } //----- Fin de Catalogue
 
 
@@ -68,7 +80,7 @@ Catalogue::~Catalogue ( )
 #ifdef MAP
     cout << "Appel au destructeur de <Catalogue>" << endl;
 #endif
-delete [] tab;
+free(tab);
 } //----- Fin de ~Catalogue
 
 
