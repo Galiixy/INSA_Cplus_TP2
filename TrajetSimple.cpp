@@ -27,6 +27,20 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+char* TrajetSimple::concatDepart()
+{
+  strcat(pileDepart,villeDepart);
+  return pileDepart;
+}
+// Concatenation des villes de départ
+
+char* TrajetSimple::concatArrivee()
+{
+  strcat(pileArrivee,villeArrivee);
+  return pileArrivee;
+}
+// Concatenation des villes d'arrivee
+
 void TrajetSimple::Afficher() const
 {
   cout << " de " << this->villeDepart << " à " << this->villeArrivee << " en " << this->moyenTransport ;

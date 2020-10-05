@@ -15,7 +15,7 @@
 #include <cstring>
 
 //------------------------------------------------------------- Constantes
-
+const int buffer = 255 ;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
@@ -35,12 +35,19 @@ struct ListTrajet
   Trajet * pointeur;
 };
 
+char  pileDepart[buffer];
+char  pileArrivee[buffer];
+
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
     //
     // Contrat :
     //
+    virtual char* concatDepart() = 0 ;
+    virtual char* concatArrivee() = 0 ;
+    // Concatenation des villes de départ
+    // Concatenation des villes d'arrivee
 
     virtual void Afficher() const = 0;
     // La méthode virtuelle pure qui rend la classe abstraite
@@ -74,9 +81,9 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-char  villeDepart[255];
-char  villeArrivee[255];
-char  moyenTransport[255];
+char  villeDepart[buffer];
+char  villeArrivee[buffer];
+char  moyenTransport[buffer];
 };
 
 //-------------------------------- Autres définitions dépendantes de <Trajet>

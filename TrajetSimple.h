@@ -35,6 +35,11 @@ public:
     //
     // Contrat :
     //
+     char* concatDepart() ;
+     char* concatArrivee() ;
+    // Concatenation des villes de départ
+    // Concatenation des villes d'arrivee
+
     virtual void Afficher() const;
     // La méthode affiche simplement les infos de bases
 

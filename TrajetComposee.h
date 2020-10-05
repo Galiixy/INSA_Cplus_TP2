@@ -32,6 +32,8 @@ public:
   ListTrajet * head=nullptr;
   void Ajouter( Trajet * unTrajet);
   void Afficher() const;
+  char* concatDepart() ;
+  char* concatArrivee() ;
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :

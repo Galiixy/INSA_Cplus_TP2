@@ -52,6 +52,8 @@ Trajet::Trajet ( )
     strcpy(villeDepart,"Aucune");
     strcpy(villeArrivee,"Aucune");
     strcpy(moyenTransport,"Aucun");
+    strcpy(pileDepart,"");
+    strcpy(pileArrivee,"");
 } //----- Fin de Trajet
 
 Trajet::Trajet(const char * depart,const char * arrivee,const char * transport)
@@ -62,6 +64,8 @@ Trajet::Trajet(const char * depart,const char * arrivee,const char * transport)
   strcpy(villeDepart,depart);
   strcpy(villeArrivee,arrivee);
   strcpy(moyenTransport,transport);
+  strcpy(pileDepart,"");
+  strcpy(pileArrivee,"");
 }
 // Ce constructeur permet de donner des valeurs aux attributs d'instances
 // dès la création de la classe (dès l'instanciation)

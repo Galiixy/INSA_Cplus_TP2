@@ -21,14 +21,54 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+char* TrajetComposee::concatDepart()
+{
+  ListTrajet * tempo=head;
+  while(tempo!=nullptr)
+  {
+    strcat(pileDepart,tempo->pointeur->concatDepart());
+    tempo=tempo->next;
+  }
+  return pileDepart;
+}
+
+char* TrajetComposee::concatArrivee()
+{
+  ListTrajet * tempo=head;
+  while(tempo!=nullptr)
+  {
+    strcat(pileArrivee,tempo->pointeur->concatArrivee());
+    tempo=tempo->next;
+  }
+  return pileArrivee;
+}
+
 void TrajetComposee::Ajouter(Trajet * unTrajet)
 {
-  ListTrajet * tmp = new ListTrajet ;
-  tmp->pointeur=unTrajet;
-  tmp->next=head;
-  head=tmp;
   tailleAct++;
   tailleMax++;
+  /*  Programme pour l'ajout en tête */
+    if(head==nullptr)
+    {
+      ListTrajet * tmp = new ListTrajet ;
+      tmp->pointeur=unTrajet;
+      tmp->next=head;
+      head=tmp;
+    }
+    else
+    {
+      ListTrajet * elt = new ListTrajet ;
+      elt->pointeur=unTrajet;
+      elt->next=nullptr;// Car il prend la place du dernier élément
+
+      ListTrajet * tmp = head;
+
+      while(tmp->next!=nullptr)
+      {
+        tmp=tmp->next;
+      }
+      tmp->next=elt;
+    }
 }
 
 // type TrajetComposee::Méthode ( liste des paramètres )

@@ -27,6 +27,22 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+void Catalogue::RechercherTrajetSimple(const char * depart,const char * arrivee)
+{
+  // On parcours le catalogue
+  for(unsigned int i=0;i<tailleAct;i++)
+  {
+    tab[i].pointeurSurTrajet->concatDepart(); // on remplit pileDepart
+    tab[i].pointeurSurTrajet->concatArrivee(); // on remplit pileArrivee
+    if( strstr(tab[i].pointeurSurTrajet->pileDepart,depart)!=nullptr )
+    {
+      if( strstr(tab[i].pointeurSurTrajet->pileArrivee,arrivee)!=nullptr )
+      {
+        tab[i].pointeurSurTrajet->Afficher(); cout << ""<< endl;
+      }
+    }
+  }
+}
 void Catalogue::Afficher() const
 {
   if(tailleAct<=0)

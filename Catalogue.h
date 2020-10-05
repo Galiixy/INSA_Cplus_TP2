@@ -29,6 +29,13 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    void RechercherTrajetAvancee(const char * depart,const char * arrivee);
+    // La méthode parcours le catalogue et affiche les trajets valides
+    // Possibilité de combiner plusieurs trajets
+    
+    void RechercherTrajetSimple(const char * depart,const char * arrivee);
+    // La méthode parcours le catalogue et affiche les trajets valides
+
     void Afficher() const;
     // type Méthode ( liste des paramètres );
     // Mode d'emploi :
