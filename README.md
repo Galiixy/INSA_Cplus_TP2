@@ -47,5 +47,5 @@ vous aurez les résultats de tests réalisé par notre équipe.
 
 ## Authors
 
-* **Rivaldo ** - *Initial work* 
-* **Gaëlle ** - *Initial work*
+* Rivaldo  - *Initial work* 
+* Gaëlle  - *Initial work*
