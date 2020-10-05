@@ -80,9 +80,38 @@ static void test ( void )
 //////////////////////////////////////////////////////////////////  PUBLIC
 //---------------------------------------------------- Fonctions publiques
 int main ( void )
-// Algorithme :
-//
 {
-  test();
+   char lecture[100];
+  cout<<"Bienvenue dans le catalogue de trajet : "<<endl;
+  cout<<endl<<"--------------------------------------------------------------------------"<<endl;
+    cout<<"Ecrivez ""test"" pour charger le test de l'application"<<endl;
+    cout<<"Ecrivez ""ajout"" pour ajouter un trajet simple ou composé au catalogue"<<endl;
+    cout<<"Ecrivez ""affichage"" pour afficher le contenu du catalogue"<<endl;
+    cout<<"Ecrivez ""recherche"" pour rechercher un trajet dans le catalogue"<<endl;
+    cout<<"Ecrivez ""bye"" pour quitter l'application"<<endl;
+    cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+
+
+  fscanf(stdin,"%99s",lecture);
+  while (strcmp(lecture,"bye")!=0) {
+    if (strcmp(lecture,"test")==0) {
+      test();
+    } else if (strcmp(lecture,"ajout")==0) {
+      //add a route
+    } else if (strcmp(lecture,"affichage")==0) {
+      //print catalogue
+    } else if (strcmp(lecture,"recherche")==0) {
+      //research
+    } 
+    cout<<endl<<"--------------------------------------------------------------------------"<<endl;
+    cout<<"Ecrivez ""test"" pour charger le test de l'application"<<endl;
+    cout<<"Ecrivez ""ajout"" pour ajouter un trajet simple ou composé au catalogue"<<endl;
+    cout<<"Ecrivez ""affichage"" pour afficher le contenu du catalogue"<<endl;
+    cout<<"Ecrivez ""recherche"" pour rechercher un trajet dans le catalogue"<<endl;
+    cout<<"Ecrivez ""bye"" pour quitter l'application"<<endl;
+    cout<<"--------------------------------------------------------------------------"<<endl<<endl;
+
+    fscanf(stdin,"%99s",lecture);
+  }
   return 0;
-} //----- fin de Nom
+} //----- fin du main
