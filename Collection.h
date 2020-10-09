@@ -21,7 +21,8 @@
 // Rôle de la classe <Collection>
 //
 //
-//------------------------------------------------------------------------
+// Elle permet de stocker un pointeur sur chaque Trajet,(sans distinction du type du Trajet)
+// Elle précise éventuellement si le trajet est composé (si tailleAct>1)
 
 
 class Collection

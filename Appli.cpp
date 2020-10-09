@@ -23,6 +23,7 @@ using namespace std;
 //---------------------------------------------------- Variables statiques
 
 //------------------------------------------------------ Fonctions privées
+
 static void test ( void )
 // Mode d'emploi :
 //
@@ -52,7 +53,7 @@ static void test ( void )
 
   // Création du trajet composée
   // On ajoute les trajets simples dans l'ordre
-  TrajetComposee * TS2 = new TrajetComposee(1,1,TS2_1);
+  TrajetCompose * TS2 = new TrajetCompose(1,1,TS2_1);
   TS2->Ajouter(TS2_2);
 
   //TS2->Afficher();cout << " " << "\r\n";
@@ -63,9 +64,10 @@ static void test ( void )
   catalogue->Ajouter(TS2);
   catalogue->Ajouter(TS3);
 
-  //catalogue->Afficher();
+  catalogue->Afficher();
 
-  catalogue->RechercherTrajetSimple("Lyon","Bordeaux");
+  //catalogue->RechercherTrajetSimple("Lyon","Paris");
+
 
   // Libération de la mémoire
   //delete CS3;
@@ -78,10 +80,58 @@ static void test ( void )
   delete catalogue;
 } //----- fin de nom
 
+/*
+static void test2 (void)
+{
+  Catalogue * catalogue = new Catalogue(4);
+
+  Trajet * TS1 = new TrajetSimple("A","B","MT1");
+  Trajet * TC1_1 = new TrajetSimple("B","Y","MT3");
+  Trajet * TC1_2 = new TrajetSimple("Y","C","MT2");
+  Trajet * TS2 = new TrajetSimple("B","C","MT1");
+  Trajet * TC2_1 = new TrajetSimple("A","Z","MT2");
+  Trajet * TC2_2 = new TrajetSimple("Z","C","MT1");
+
+  TrajetCompose * TC1 = new TrajetCompose(1,1,TC1_1);
+  TC1->Ajouter(TC1_2);
+  TrajetCompose * TC2 = new TrajetCompose(1,1,TC2_1);
+  TC2->Ajouter(TC2_2);
+
+
+  catalogue->Ajouter(TS1);
+  catalogue->Ajouter(TC1);
+  catalogue->Ajouter(TS2);
+  catalogue->Ajouter(TC2);
+
+  //catalogue->Afficher();
+
+  //catalogue->RechercherTrajetSimple("A","C");
+  catalogue->RechercherTrajetAvancee("A","C");
+
+
+  delete TC2_2;
+  delete TC2_1;
+  delete TC2;
+
+  delete TS2;
+
+  delete TC1_2;
+  delete TC1_1;
+  delete TC1;
+
+  delete TS1;
+
+  delete catalogue;
+
+  return;
+}
+*/
+
 //////////////////////////////////////////////////////////////////  PUBLIC
 //---------------------------------------------------- Fonctions publiques
 int main ( void )
 {
+  /*
   char lecture[100];
   char depart [100];
   char arrivee [100];
@@ -128,7 +178,7 @@ int main ( void )
       fscanf(stdin,"%99s",lecture);
       cout << endl <<"Ville d'Arrivée : ";
       fscanf(stdin,"%99s",lecture);
-    } 
+    }
     cout<<endl<<"--------------------------------------------------------------------------"<<endl;
     cout<<"Ecrivez ""test"" pour charger le test de l'application"<<endl;
     cout<<"Ecrivez ""ajout"" pour ajouter un trajet simple ou composé au catalogue"<<endl;
@@ -139,5 +189,7 @@ int main ( void )
 
     fscanf(stdin,"%99s",lecture);
   }
+  */
+  test();
   return 0;
 } //----- fin du main

@@ -33,8 +33,12 @@ make
 Vous avez à présent compilé les fichiers, vous pouvez lancé le programme en tapant la commande suivante
 ```
 ./Application
+make run
 ```
-
+# valgrind 
+Pour exécuter le programme avec valgrind , ouvrez le terminal et tapez
+la commande 
+make valgrind
 ## Running the tests
 
 Dans le menu, tapez 

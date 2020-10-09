@@ -27,6 +27,47 @@ using namespace std;
 //
 //{
 //} //----- Fin de Méthode
+void TrajetSimple::Ajouter( Trajet * unTrajet)
+{
+  cout << "Simple" << endl;
+  /*  Programme pour l'ajout en tête  en cas de liste vide*/
+    if(head==nullptr)
+    {
+      ListTrajet * tmp = new ListTrajet;
+      tmp->pointeur=unTrajet;
+      tmp->next=head;
+      head=tmp;
+    }
+    else
+    {
+      tailleAct++;
+      tailleMax++;
+      // Ajout en queue de liste
+      ListTrajet * elt = new ListTrajet ;
+      elt->pointeur=unTrajet;
+      elt->next=nullptr;// Car il prend la place du dernier élément
+
+      ListTrajet * tmp = head;
+
+      while(tmp->next!=nullptr)
+      {
+        tmp=tmp->next;
+      }
+      tmp->next=elt;
+    }
+}
+char* TrajetSimple::globalDepart()
+{
+  strcpy(villeDepartGlobal,villeDepart);
+  return villeDepartGlobal;
+}
+
+char* TrajetSimple::globalArrivee()
+{
+  strcpy(villeArriveeGlobal,villeArrivee);
+  return villeArriveeGlobal;
+}
+
 char* TrajetSimple::concatDepart()
 {
   strcat(pileDepart,villeDepart);
@@ -74,6 +115,14 @@ TrajetSimple::~TrajetSimple ( )
 #ifdef MAP
     cout << "Appel au destructeur de <TrajetSimple>" << endl;
 #endif
+// Destruction de la liste d'objet
+ListTrajet * tempo=head;
+while(tempo!=nullptr)
+{
+  tempo=tempo->next;
+  delete head;
+  head=tempo;
+}
 } //----- Fin de ~TrajetSimple
 
 

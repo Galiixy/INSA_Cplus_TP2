@@ -11,7 +11,8 @@
 #define CATALOGUE_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include "TrajetComposee.h"
+#include "Collection.h"
+#include "TrajetCompose.h"
 #include "Trajet.h"
 //------------------------------------------------------------- Constantes
 
@@ -29,12 +30,22 @@ class Catalogue
 
 public:
 //----------------------------------------------------- Méthodes publiques
+    /*
+    Catalogue  Combiner(void);
+    // Cette méthode parcours le catalogue et crée si possible des binômes
+    // de trajets qui se suivent c'est-à-dire villeArriveeGlobal de l'un est
+    // égal à villeDepartGlobal de l'autre
+    // Dans l'utilisation, on fait des appels récursifs pour lister toutes les
+    // Possibilités de combinaisons
+
     void RechercherTrajetAvancee(const char * depart,const char * arrivee);
     // La méthode parcours le catalogue et affiche les trajets valides
     // Possibilité de combiner plusieurs trajets
-    
+    */
     void RechercherTrajetSimple(const char * depart,const char * arrivee);
     // La méthode parcours le catalogue et affiche les trajets valides
+    // On vérifie si depart se trouve dans la pile de departs
+    // puis si arrivee se trouve dans la pile d'arrivée
 
     void Afficher() const;
     // type Méthode ( liste des paramètres );
@@ -43,7 +54,6 @@ public:
     // Contrat :
     //
     void Ajouter( Trajet * unTrajet);
-
 //-------------------------------------------- Constructeurs - destructeur
     Catalogue ( const Catalogue & unCatalogue );
     // Mode d'emploi (constructeur de copie) :
@@ -51,7 +61,7 @@ public:
     // Contrat :
     //
 
-    Catalogue ( int taille );
+    Catalogue (unsigned int taille );
     // Mode d'emploi :
     //
     // Contrat :
@@ -67,7 +77,7 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-TrajetComposee * tab = nullptr;
+TrajetCompose * tableau = nullptr ;
 unsigned int tailleAct;
 unsigned int tailleMax;
 //----------------------------------------------------- Attributs protégés

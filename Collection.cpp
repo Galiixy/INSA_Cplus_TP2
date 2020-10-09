@@ -6,7 +6,7 @@
     e-mail               : $EMAIL$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Collection> (fichier Collection.cpp) ------------
+//---------- Réalisation de la classe <Collection> (fichier Collection.cpp) -
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -31,6 +31,12 @@ using namespace std;
 
 
 //-------------------------------------------- Constructeurs - destructeur
+Collection::Collection()
+{
+  #ifdef MAP
+      cout << "Appel au constructeur par défaut de <Collection>" << endl;
+  #endif
+}
 Collection::Collection ( const Collection & uneCollection )
 // Algorithme :
 //
@@ -44,7 +50,8 @@ Collection::Collection ( const Collection & uneCollection )
 } //----- Fin de Collection (constructeur de copie)
 
 
-Collection::Collection (unsigned int max,unsigned int act,Trajet * pointeur):tailleMax(max),tailleAct(act),pointeurSurTrajet(pointeur)
+Collection::Collection (unsigned int max,unsigned int act,Trajet * pointeur)
+:tailleMax(max),tailleAct(act),pointeurSurTrajet(pointeur)
 // Algorithme :
 //
 {
