@@ -1,7 +1,7 @@
 # Projet C++ - Catalogue de trajet
 
 Ce projet intervient dans le cours de Programmation Orienté Objet enseigné par Mathieu Maranzana en 1ère année de cursus ingénieur Informatique à l'INSA de LYON. 
-L'objectif est de se familiariser avec les concepts et mécanisme de base des langages à objet en utilsant le langage C++.
+L'objectif est de se familiariser avec les concepts et mécanisme de base des langages à objet en utilisant le langage C++.
 
 L'application doit permettre à un utilisateur d'accéder à un catalogue de trajet et de lui proposer des parcours pour un voyage défini par une ville de départ, une ville d'arrivée et un moyen de transport. L'utilisateur doit pouvoir ajouter des trajets, afficher le contenu du catalogue et rechercher un trajet.
 
@@ -26,11 +26,11 @@ Clonez le git
 git clone https://github.com/Galiixy/TP2_Cplus.git
 ```
 ### Run application
-Dans le répertoire précédement cloné, ouvrez le terminal et tapez la commande suivante 
+Dans le répertoire précédemment cloné, ouvrez le terminal et tapez la commande suivante 
 ```
 make
 ```
-Vous avez à présent compilé les fichiers, vous pouvez lancé le programme en tapant la commande suivante
+Vous avez à présent compiler les fichiers, vous pouvez lancer le programme en tapant la commande suivante
 ```
 ./Application
 make run
