@@ -15,7 +15,9 @@
 #include <cstring>
 
 //------------------------------------------------------------- Constantes
-const int buffer = 255 ;
+const int buffer =  1000 ;
+// Cette constante définit le nombre de caractères pouvant être stocké
+
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
@@ -28,15 +30,20 @@ class Trajet
 {
 //----------------------------------------------------------------- PUBLIC
 public:
-// La liste chainée qui va stocker les pointeurs
+
 struct ListTrajet
 {
   ListTrajet * next;
   Trajet * pointeur;
 };
+// C'est la liste chainée qui va stocker les pointeurs sur les trajets
+// Elle est utilisée surtout dans TrajetCompose pour stocker la collection
+// de Trajets et pour la parcourir efficacement
 
 char  pileDepart[buffer];
 char  pileArrivee[buffer];
+char villeDepartGlobal [buffer];
+char villeArriveeGlobal [buffer];
 
 //----------------------------------------------------- Méthodes publiques
     // type Méthode ( liste des paramètres );
@@ -44,13 +51,15 @@ char  pileArrivee[buffer];
     //
     // Contrat :
     //
+    // Ces méthodes virtuelles pures vont être redéfinis dans les classes filles
+    virtual void Ajouter( Trajet * unTrajet)=0;
     virtual char* concatDepart() = 0 ;
     virtual char* concatArrivee() = 0 ;
-    // Concatenation des villes de départ
-    // Concatenation des villes d'arrivee
+    virtual char* globalDepart() = 0 ;
+    virtual char* globalArrivee() = 0 ;
 
     virtual void Afficher() const = 0;
-    // La méthode virtuelle pure qui rend la classe abstraite
+    // La méthode virtuelle pure
 //-------------------------------------------- Constructeurs - destructeur
     Trajet ( const Trajet & unTrajet );
     // Mode d'emploi (constructeur de copie) :
@@ -77,7 +86,7 @@ char  pileArrivee[buffer];
 
 //------------------------------------------------------------------ PRIVE
 
-protected:
+
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés

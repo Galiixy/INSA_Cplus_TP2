@@ -21,7 +21,9 @@
 //------------------------------------------------------------------------
 // Rôle de la classe <TrajetSimple>
 //
-//
+// Cette Classe existe surtout pour la compréhension globale
+// Elle permet de stocker un unique trajet "villeDepart-villeArrivee"
+// C'est le plus petit TrajetCompose possible 
 //------------------------------------------------------------------------
 
 class TrajetSimple : public Trajet,public Collection
@@ -35,10 +37,26 @@ public:
     //
     // Contrat :
     //
+     ListTrajet * head=nullptr;
+     // Pour faciliter le parcours et la manipulation du contenu de trajet
+     // On utilise la liste chainée ListTrajet
+
+     void Ajouter( Trajet * unTrajet);
+     /*********************************************************************/
+     // Les quatres fonctions suivantes servent surtout à l'Algorithme de
+     // recherche (simple comme avancée)
      char* concatDepart() ;
+     // cette fonction parcours le trajet et concatène les villes de départ dans
+     //la chaîne de caractères appelé pileDepart
      char* concatArrivee() ;
-    // Concatenation des villes de départ
-    // Concatenation des villes d'arrivee
+     // cette fonction parcours le trajet et concatène les villes d'arrivee dans
+     // la chaînes de caractères appelé pileArrivee
+     char* globalDepart() ;
+     // cette fonction parcours le trajet et copie la ville de départ global à
+     // l'ensemble du trajet dans la chaîne de caractères appelé villeDepartGlobal
+     char* globalArrivee() ;
+     // cette fonction parcours le trajet et copie la ville d'arrivée global à
+     // l'ensemble du trajet dans la chaîne de caractères appelé villeArriveeGlobal
 
     virtual void Afficher() const;
     // La méthode affiche simplement les infos de bases

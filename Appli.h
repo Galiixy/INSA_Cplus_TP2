@@ -20,7 +20,7 @@
 //--------------------------------------------------- Interfaces utilisées
 #include "Trajet.h"
 #include "TrajetSimple.h"
-#include "TrajetComposee.h"
+#include "TrajetCompose.h"
 #include "Collection.h"
 #include "Catalogue.h"
 //------------------------------------------------------------- Constantes
